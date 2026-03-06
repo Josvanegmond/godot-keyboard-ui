@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://qcov8b2hx4rx"]
+
+[ext_resource type="Script" uid="uid://cj1nrk1dfyka5" path="res://components/modal/modal.gd" id="1_06t4h"]
+
+[node name="MainMenu" type="Control" unique_id=1013218674]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_06t4h")
+glass_color = Color(0.09239707, 0.09239706, 0.09239706, 0.8117647)
+metadata/_custom_type_script = "uid://cj1nrk1dfyka5"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=342521016]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = 426.0
+offset_top = 269.0
+offset_right = 726.0
+offset_bottom = 378.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BeginGameButton" type="Button" parent="VBoxContainer" unique_id=423227016]
+layout_mode = 2
+text = "Begin game"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=1415313505]
+layout_mode = 2
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer" unique_id=1018873088]
+layout_mode = 2
+text = "Exit game"

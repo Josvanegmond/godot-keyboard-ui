@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://djhq3a1bo04bj"]
+
+[ext_resource type="Script" uid="uid://c2hv7slyefbol" path="res://examples/modal_trap_example/button_group.gd" id="1_ef5rd"]
+[ext_resource type="Script" uid="uid://cj1nrk1dfyka5" path="res://components/modal/modal.gd" id="2_d48pm"]
+
+[node name="Control" type="Control" unique_id=273928129]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 400.0
+script = ExtResource("1_ef5rd")
+
+[node name="Modal" type="Control" parent="." unique_id=1805811200]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_d48pm")
+metadata/_custom_type_script = "uid://cj1nrk1dfyka5"
+
+[node name="MarginContainer" type="MarginContainer" parent="Modal" unique_id=981427059]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Modal/MarginContainer" unique_id=2055786068]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CreateModalButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=278281728]
+layout_mode = 2
+text = "Create modal"
+
+[node name="UselessButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=524454877]
+layout_mode = 2
+text = "Useless button"
+
+[node name="DisabledButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=1704591993]
+layout_mode = 2
+disabled = true
+text = "Disabled button"
+
+[node name="InvisibleButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=685135819]
+visible = false
+layout_mode = 2
+text = "Useless button"
+
+[node name="CloseModalButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=645675270]
+layout_mode = 2
+text = "Close this modal"
+
+[connection signal="pressed" from="Modal/MarginContainer/VBoxContainer/CreateModalButton" to="." method="_on_create_modal_button_pressed"]
+[connection signal="pressed" from="Modal/MarginContainer/VBoxContainer/CloseModalButton" to="." method="_on_close_modal_button_pressed"]
