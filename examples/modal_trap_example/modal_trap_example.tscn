@@ -21,8 +21,8 @@ offset_bottom = 15.5
 grow_vertical = 2
 text = "Button behind"
 
-[node name="ButtonGroup" parent="." unique_id=2055786068 instance=ExtResource("1_a8ngm")]
-layout_mode = 1
+[node name="ButtonGroup" parent="." unique_id=273928129 instance=ExtResource("1_a8ngm")]
+layout_mode = 0
 
 [node name="Button on top" type="Button" parent="." unique_id=301405949]
 layout_mode = 1
