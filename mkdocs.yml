@@ -1,0 +1,40 @@
+site_name: Godot Keyboard UI
+site_description: A collection of Godot UI components for keyboard and non-mouse input accessibility
+site_url: https://josvanegmond.github.io/godot-keyboard-ui/
+repo_url: https://github.com/Josvanegmond/godot-keyboard-ui
+repo_name: Josvanegmond/godot-keyboard-ui
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+
+nav:
+  - Home: index.md
+  - Focus Control: focus-control.md
+  - Modal: modal.md
+  - UI Audio: ui-audio.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
