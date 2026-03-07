@@ -4,7 +4,11 @@ This repository contains the entire collection of godot UI components that assis
 I started this collection to support accessibility for games on various aspects.
 Games should not have to reinvent the wheel every time to implement these accessibility features.
 
-## What it contains
+This addon will work for Godot version 4.5 and up.
+
+## Scope
+
+I intend this collection to address issues and provide utilities from the following topics:
 
 - Focus control: from tab-traps to wrapping, have components manage better control of the focus than natively is given.
 - Input: from keyboard to controller support, focus control with arrow-keys and d-pad, remapping triangles, Y-buttons, and keys.
@@ -13,7 +17,10 @@ Games should not have to reinvent the wheel every time to implement these access
 
 ## How to use
 
-Right now, simply copy the addons folder to your project. In the future I might make a separate github project that you can directly add to your game folder as a submodule.
+As of right now, copy the addons folder to the main root of your project (where other addons live).
+Once in your project, enable the addon in project > Project settings > Plugins.
+
+In the future I might make a separate github project that you can directly add to your game folder as a submodule.
 A readme is provided for every feature in this collection, and examples can be found in the example folder.
 
 ## Suggestions?

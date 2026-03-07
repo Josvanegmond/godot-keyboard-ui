@@ -26,6 +26,7 @@ Nodes can be connected only once. Trying to connect a node that is already conne
 
 If you have a custom component you'd like to emit one of the UIAudio sounds, you can register it with the _try_connect(node: Node, type: UIAudio.ConnectType) function.
 It will treat the node as the given ConnectType, which defaults to AUTO.
+
 With AUTO, it is expected your component extends one of the provided types, e.g. BaseButton.
 Otherwise, you'll have to ensure you provide the functions and properties the script needs to fire events.
 
@@ -37,3 +38,27 @@ In the register function, set up your signals to call UIAudio.notify(node: Node,
 
 You can find an example scene implementing the modal node in [examples/audio](../../examples/audio)
 
+```
+# audio_player_example.gd
+# connect to the UIAudio event signal and play your audio
+
+var _sounds: Dictionary = {
+	UIAudio.FOCUS: preload("res://assets/sfx/focus_shift.wav"),
+	UIAudio.PRESS: preload("res://assets/sfx/press.wav"),
+	UIAudio.PRESS_DISABLED: preload("res://assets/sfx/press_disabled.wav"),
+	# ... etc
+}
+
+
+func _ready() -> void:
+	UIAudio.ui_audio_event.connect(_on_ui_audio_event)
+
+
+func _on_ui_audio_event(_control: Control, event_name: StringName) -> void:
+	if event_name in _sounds:
+		var player := AudioStreamPlayer.new()
+		player.stream = _sounds[event_name]
+		add_child(player)
+		player.play()
+		player.finished.connect(player.queue_free)
+```
