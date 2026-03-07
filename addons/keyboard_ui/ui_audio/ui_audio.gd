@@ -74,15 +74,26 @@ func _scan_tree(node: Node) -> void:
 
 
 # Ensures nodes are only connected once to prevent accidental double signal registering
-func ui_connect(node: Node, connect_type: ConnectType = ConnectType.AUTO, custom_connection_callback: Callable = Callable()) -> void:
+func ui_connect(node: Node, connect_type: ConnectType = ConnectType.AUTO) -> void:
 	if node in _connections:
 		return
-	if custom_connection_callback.is_valid():
-		custom_connection_callback.call(node)
-	elif _is_type(node, connect_type, ConnectType.BUTTON):
+	if _is_type(node, connect_type, ConnectType.BUTTON):
 		_connect_button(node)
 	elif _is_type(node, connect_type, ConnectType.SLIDER):
 		_connect_slider(node)
+
+
+# For registering custom components, give a callable that returns a Dictionary of { signal_name: callable }
+# The callable should call UIAudio.notify(node, event_name)
+func ui_connect_custom(node: Node, custom_connection_callback: Callable) -> void:
+	if node in _connections:
+		return
+	var signal_map: Dictionary = custom_connection_callback.call(node)
+	_connections[node] = []
+	for signal_name: String in signal_map:
+		var callable: Callable = signal_map[signal_name]
+		node.connect(signal_name, callable)
+		_connections[node].append([signal_name, callable])
 
 
 func ui_disconnect(node: Node) -> void:
