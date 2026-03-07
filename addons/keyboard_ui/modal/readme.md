@@ -30,4 +30,4 @@ When no node has the focus, the first or last focusable control receives the foc
 
 ## Example
 
-You can find an example scene implementing the modal node in [examples/modal_trap_example](../../examples/modal_trap_example)
+You can find an example scene implementing the modal node in [examples/modal_trap_example](https://github.com/Josvanegmond/godot-keyboard-ui/tree/main/examples/modal_trap_example)

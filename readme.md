@@ -1,5 +1,7 @@
 # Godot keyboard UI collection
 
+[Go to the technical documentation here](https://josvanegmond.github.io/godot-keyboard-ui/)
+
 This repository contains the entire collection of godot UI components that assist the use of keyboard (and other non-mouse input devices).
 I started this collection to support accessibility for games on various aspects.
 Games should not have to reinvent the wheel every time to implement these accessibility features.

@@ -36,7 +36,7 @@ In the register function, set up your signals to call UIAudio.notify(node: Node,
 
 ## Example
 
-You can find an example scene implementing the modal node in [examples/audio](../../examples/audio)
+You can find an example scene implementing the modal node in [examples/audio](https://github.com/Josvanegmond/godot-keyboard-ui/tree/main/examples/audio)
 
 ```
 # audio_player_example.gd
