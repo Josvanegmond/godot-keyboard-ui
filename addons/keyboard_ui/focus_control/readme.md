@@ -1,4 +1,4 @@
-# FOCUS_CONTROL
+# FocusControl
 
 focus_control.gd provides a control node that is expected to receive focus, and handles it correctly in more cases than natively provided.
 
