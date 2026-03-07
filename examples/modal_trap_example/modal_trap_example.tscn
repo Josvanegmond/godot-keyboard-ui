@@ -1,25 +1,43 @@
 [gd_scene format=3 uid="uid://b8cuvqgwqosfv"]
 
 [ext_resource type="PackedScene" uid="uid://djhq3a1bo04bj" path="res://examples/modal_trap_example/button_group.tscn" id="1_a8ngm"]
+[ext_resource type="Script" uid="uid://drs47bhebh680" path="res://addons/keyboard_ui/focus_control/focus_control.gd" id="1_b3gom"]
 [ext_resource type="Script" uid="uid://ca0pt3jybhtvh" path="res://examples/audio/ui_audio_player.gd" id="2_h7n1k"]
 
-[node name="ModalTrapTest" type="Control" unique_id=10153919]
+[node name="ModalTrapTest" type="Control" unique_id=1707222162]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_b3gom")
+metadata/_custom_type_script = "uid://drs47bhebh680"
 
-[node name="Button behind" type="Button" parent="." unique_id=1051106095]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1442759392]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -15.5
-offset_right = 120.0
-offset_bottom = 15.5
+offset_left = -60.0
+offset_top = -54.5
+offset_right = 60.0
+offset_bottom = 54.5
+grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Button behind" type="Button" parent="VBoxContainer" unique_id=1051106095]
+layout_mode = 2
+text = "Button behind"
+
+[node name="Button behind2" type="Button" parent="VBoxContainer" unique_id=1084598187]
+layout_mode = 2
+text = "Button behind"
+
+[node name="Button behind3" type="Button" parent="VBoxContainer" unique_id=1565744325]
+layout_mode = 2
 text = "Button behind"
 
 [node name="ButtonGroup" parent="." unique_id=273928129 instance=ExtResource("1_a8ngm")]

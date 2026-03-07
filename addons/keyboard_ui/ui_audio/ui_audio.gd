@@ -30,6 +30,9 @@ var _type_class_map: Dictionary = {
 }
 
 
+var _boundary_candidate: Control = null
+
+
 func notify(control: Control, event_name: StringName) -> void:
 	ui_audio_event.emit(control, event_name)
 
@@ -38,6 +41,28 @@ func _ready() -> void:
 	get_tree().node_added.connect(ui_connect)
 	get_tree().node_removed.connect(ui_disconnect)
 	_scan_tree(get_tree().root)
+	get_viewport().gui_focus_changed.connect(_on_focus_changed)
+
+
+func _on_focus_changed(_new_focus: Control) -> void:
+	_boundary_candidate = null
+
+
+func _input(event: InputEvent) -> void:
+	var focus_owner := get_viewport().gui_get_focus_owner()
+	if not focus_owner:
+		return
+
+	if event.is_action_pressed(&"ui_up") or event.is_action_pressed(&"ui_down") \
+		or event.is_action_pressed(&"ui_left") or event.is_action_pressed(&"ui_right"):
+		_boundary_candidate = focus_owner
+		_check_boundary.call_deferred(focus_owner)
+
+
+func _check_boundary(expected: Control) -> void:
+	if _boundary_candidate == expected:
+		notify(expected, FOCUS_BOUNDARY)
+	_boundary_candidate = null
 
 
 func _scan_tree(node: Node) -> void:

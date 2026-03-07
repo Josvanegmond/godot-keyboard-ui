@@ -1,4 +1,3 @@
-@tool
 extends FocusControl
 class_name Modal
 
@@ -83,5 +82,8 @@ func _update_modal_glass():
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	super._unhandled_input(event)
+
 	if event.is_action_pressed("ui_cancel"):
 		dismiss.emit(event)
+		get_viewport().set_input_as_handled()

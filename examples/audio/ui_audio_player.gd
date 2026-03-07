@@ -6,7 +6,6 @@ var _sounds: Dictionary = {
 	UIAudio.FOCUS: preload("res://assets/sfx/focus_shift.wav"),
 	UIAudio.PRESS: preload("res://assets/sfx/press.wav"),
 	UIAudio.PRESS_DISABLED: preload("res://assets/sfx/press_disabled.wav"),
-	UIAudio.FOCUS_WRAP: preload("res://assets/sfx/focus_wrap.wav"),
 	UIAudio.FOCUS_BOUNDARY: preload("res://assets/sfx/focus_stop.wav"),
 	UIAudio.SLIDER_TICK: preload("res://assets/sfx/slider_tick.wav"),
 	UIAudio.SLIDER_MIN: preload("res://assets/sfx/slider_end_low.wav"),

@@ -30,7 +30,10 @@ It will treat the node as the given ConnectType, which defaults to AUTO.
 With AUTO, it is expected your component extends one of the provided types, e.g. BaseButton.
 Otherwise, you'll have to ensure you provide the functions and properties the script needs to fire events.
 
+### Custom control nodes
+
 You can also write your own connection function by providing a custom_connection_callback to ui_connect.
+You must manually call ui_connect in your _ready function.
 This will ignore any other ConnectType connection.
 In the register function, set up your signals to call UIAudio.notify(node: Node, event) to emit over the event signal.
 
