@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://b4i7wo5bkv06k"]
+
+[ext_resource type="Script" uid="uid://bx7g00cu05til" path="res://examples/audio/ui_audio_example.gd" id="1_gf1qc"]
+[ext_resource type="Script" uid="uid://cj1nrk1dfyka5" path="res://addons/keyboard_ui/modal/modal.gd" id="1_tm6ln"]
+[ext_resource type="Script" uid="uid://ca0pt3jybhtvh" path="res://examples/audio/ui_audio_player.gd" id="3_o01sk"]
+
+[node name="UiAudioExample" type="Control" unique_id=65778549]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gf1qc")
+metadata/_custom_type_script = "uid://drs47bhebh680"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1493093138]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -35.0
+offset_right = 58.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=1888063039]
+layout_mode = 2
+text = "Open settings"
+
+[node name="DisabledButton" type="Button" parent="VBoxContainer" unique_id=1334322628]
+layout_mode = 2
+disabled = true
+text = "Exit"
+
+[node name="SettingsModal" type="Control" parent="." unique_id=16141510]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tm6ln")
+glass_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cj1nrk1dfyka5"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsModal" unique_id=1954919302]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SettingsModal/VBoxContainer" unique_id=1342318992]
+layout_mode = 2
+text = "Settings menu"
+
+[node name="DemoSlider" type="HSlider" parent="SettingsModal/VBoxContainer" unique_id=1540252816]
+layout_mode = 2
+accessibility_name = "Slider"
+accessibility_description = "It does nothing"
+max_value = 10.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="ConfirmsettingsButton" type="Button" parent="SettingsModal/VBoxContainer" unique_id=5597481]
+layout_mode = 2
+text = "Confirm settings"
+
+[node name="UIAudioPlayer" type="Node" parent="." unique_id=2099336688]
+script = ExtResource("3_o01sk")
+metadata/_custom_type_script = "uid://ca0pt3jybhtvh"
+
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="SettingsModal/VBoxContainer/ConfirmsettingsButton" to="." method="_on_confirmsettings_button_pressed"]

@@ -1,5 +1,5 @@
 @tool
-extends Control
+extends FocusControl
 class_name Modal
 
 
@@ -8,6 +8,9 @@ class_name Modal
 	set(_glass_color):
 		glass_color = _glass_color
 		_update_modal_glass()
+
+
+signal dismiss(triggering_event: InputEvent)
 
 
 var _glass: ColorRect
@@ -20,19 +23,33 @@ func _ready() -> void:
 	add_child(_glass, false, Node.INTERNAL_MODE_FRONT)
 	_update_modal_glass()
 	if not Engine.is_editor_hint():
-		_trap_focus()
+		_on_visibility_changed()
 		visibility_changed.connect(_on_visibility_changed)
 
 
 func _on_visibility_changed() -> void:
 	if visible:
-		_trap_focus()
+		_open()
 	else:
-		_release_focus()
+		_close()
 
 
 func _exit_tree() -> void:
+	_close()
+
+
+func _open() -> void:
+	_trap_focus()
+
+	if !Engine.is_editor_hint():
+		UIAudio.notify(self, UIAudio.MODAL_OPEN)
+
+
+func _close() -> void:
 	_release_focus()
+
+	if !Engine.is_editor_hint():
+		UIAudio.notify(self, UIAudio.MODAL_CLOSE)
 
 
 func _trap_focus() -> void:
@@ -60,24 +77,11 @@ func _collect_focusable(node: Node) -> bool:
 	return false
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if not visible:
-		return
-	if get_viewport().gui_get_focus_owner() != null:
-		return
-	var action := ""
-	if event.is_action_pressed("ui_down") or event.is_action_pressed("ui_right"):
-		action = "ui_focus_next"
-	elif event.is_action_pressed("ui_up") or event.is_action_pressed("ui_left"):
-		action = "ui_focus_prev"
-	if action:
-		var simulated = InputEventAction.new()
-		simulated.action = action
-		simulated.pressed = true
-		Input.parse_input_event(simulated)
-		get_viewport().set_input_as_handled()
-
-
 func _update_modal_glass():
 	if _glass:
 		_glass.color = glass_color
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		dismiss.emit(event)

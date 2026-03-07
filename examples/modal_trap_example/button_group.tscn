@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djhq3a1bo04bj"]
 
 [ext_resource type="Script" uid="uid://c2hv7slyefbol" path="res://examples/modal_trap_example/button_group.gd" id="1_ef5rd"]
-[ext_resource type="Script" uid="uid://cj1nrk1dfyka5" path="res://components/modal/modal.gd" id="2_d48pm"]
+[ext_resource type="Script" uid="uid://cj1nrk1dfyka5" path="res://addons/keyboard_ui/modal/modal.gd" id="2_d48pm"]
 
 [node name="Control" type="Control" unique_id=273928129]
 custom_minimum_size = Vector2(400, 400)

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8cuvqgwqosfv"]
 
 [ext_resource type="PackedScene" uid="uid://djhq3a1bo04bj" path="res://examples/modal_trap_example/button_group.tscn" id="1_a8ngm"]
+[ext_resource type="Script" uid="uid://ca0pt3jybhtvh" path="res://examples/audio/ui_audio_player.gd" id="2_h7n1k"]
 
 [node name="ModalTrapTest" type="Control" unique_id=10153919]
 layout_mode = 3
@@ -36,3 +37,7 @@ layout_mode = 1
 offset_right = 116.0
 offset_bottom = 31.0
 text = "Button on top"
+
+[node name="UIAudioPlayer" type="Node" parent="." unique_id=1046506073]
+script = ExtResource("2_h7n1k")
+metadata/_custom_type_script = "uid://ca0pt3jybhtvh"

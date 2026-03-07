@@ -14,6 +14,14 @@ config/name="godot-keyboard-ui.git"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+UIAudio="*uid://d22n2ty5bs3e"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/keyboard_ui/plugin.cfg")
+
 [gui]
 
 theme/custom="uid://cc87qxdn88waw"
