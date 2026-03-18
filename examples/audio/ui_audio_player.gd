@@ -12,6 +12,8 @@ var _sounds: Dictionary = {
 	UIAudio.SLIDER_MAX: preload("res://assets/sfx/slider_end_high.wav"),
 	UIAudio.MODAL_OPEN: preload("res://assets/sfx/open_modal.wav"),
 	UIAudio.MODAL_CLOSE: preload("res://assets/sfx/close_modal.wav"),
+	UIAudio.CONFIRM: preload("res://assets/sfx/confirm.wav"),
+	UIAudio.REJECT: preload("res://assets/sfx/reject.wav")
 }
 
 

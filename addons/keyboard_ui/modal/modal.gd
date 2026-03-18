@@ -1,19 +1,21 @@
+@tool
 extends FocusControl
 class_name Modal
 
 
-@export var glass_color = Color(0, 0, 0, 0.7):
+@export var glass_color = Color(0, 0, 0, 0.5):
 	get(): return glass_color
 	set(_glass_color):
 		glass_color = _glass_color
 		_update_modal_glass()
 
 
-signal dismiss(triggering_event: InputEvent)
+signal on_dismiss(triggering_event: InputEvent)
 
 
 var _glass: ColorRect
 var _trapped_nodes: Dictionary = {}
+var _trapped_mouse_filters: Dictionary = {}
 
 
 func _ready() -> void:
@@ -41,22 +43,29 @@ func _exit_tree() -> void:
 func _open() -> void:
 	_trap_focus()
 
-	UIAudio.notify(self, UIAudio.MODAL_OPEN)
+	if not Engine.is_editor_hint():
+		UIAudio.notify(self, UIAudio.MODAL_OPEN)
 
 
 func _close() -> void:
 	_release_focus()
 
-	UIAudio.notify(self, UIAudio.MODAL_CLOSE)
+	if not Engine.is_editor_hint():
+		UIAudio.notify(self, UIAudio.MODAL_CLOSE)
 
 
 func _trap_focus() -> void:
 	_trapped_nodes.clear()
+	_trapped_mouse_filters.clear()
 	_collect_focusable(get_tree().root)
 	for id in _trapped_nodes:
 		var node = instance_from_id(id)
 		if is_instance_valid(node):
 			node.focus_mode = Control.FOCUS_NONE
+	for id in _trapped_mouse_filters:
+		var node = instance_from_id(id)
+		if is_instance_valid(node):
+			node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 
 func _release_focus() -> void:
@@ -64,18 +73,24 @@ func _release_focus() -> void:
 		var node = instance_from_id(id)
 		if is_instance_valid(node):
 			node.focus_mode = _trapped_nodes[id]
+	for id in _trapped_mouse_filters:
+		var node = instance_from_id(id)
+		if is_instance_valid(node):
+			node.mouse_filter = _trapped_mouse_filters[id]
 	_trapped_nodes.clear()
+	_trapped_mouse_filters.clear()
 
 
-func _collect_focusable(node: Node) -> bool:
+func _collect_focusable(node: Node) -> void:
 	if node == self:
-		return true
-	if node is Control and node.focus_mode != Control.FOCUS_NONE:
-		_trapped_nodes[node.get_instance_id()] = node.focus_mode
+		return
+	if node is Control:
+		if node.focus_mode != Control.FOCUS_NONE:
+			_trapped_nodes[node.get_instance_id()] = node.focus_mode
+		if node.mouse_filter != Control.MOUSE_FILTER_IGNORE:
+			_trapped_mouse_filters[node.get_instance_id()] = node.mouse_filter
 	for child in node.get_children():
-		if _collect_focusable(child):
-			return true
-	return false
+		_collect_focusable(child)
 
 
 func _update_modal_glass():
@@ -87,4 +102,4 @@ func _unhandled_input(event: InputEvent) -> void:
 	super._unhandled_input(event)
 
 	if visible and event.is_action_pressed("ui_cancel"):
-		dismiss.emit(event)
+		on_dismiss.emit(event)

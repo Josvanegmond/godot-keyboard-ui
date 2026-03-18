@@ -2,7 +2,7 @@ extends FocusControl
 
 
 func _ready() -> void:
-	%SettingsModal.dismiss.connect(_on_settings_dismissed)
+	%SettingsModal.on_dismiss.connect(_on_settings_dismissed)
 
 
 func _on_settings_button_pressed() -> void:

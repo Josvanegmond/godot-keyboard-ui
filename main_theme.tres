@@ -1,8 +1,114 @@
 [gd_resource type="Theme" format=3 uid="uid://cc87qxdn88waw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_470mv"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2l2q"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0omi4"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.446777, 0.44677705, 0.44677705, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58jnp"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_466ly"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsqoc"]
+bg_color = Color(0.24840015, 0.24840018, 0.24840015, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.047557652, 0.04755766, 0.047557585, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [resource]
-MarginContainer/constants/margin_bottom = 64
-MarginContainer/constants/margin_left = 64
-MarginContainer/constants/margin_right = 64
-MarginContainer/constants/margin_top = 64
-VBoxContainer/constants/separation = 8
+Button/styles/disabled = SubResource("StyleBoxFlat_470mv")
+Button/styles/focus = SubResource("StyleBoxFlat_a2l2q")
+Button/styles/hover = SubResource("StyleBoxFlat_0omi4")
+Button/styles/normal = SubResource("StyleBoxFlat_58jnp")
+Button/styles/pressed = SubResource("StyleBoxFlat_466ly")
+HBoxContainer/constants/separation = 16
+MarginContainer/constants/margin_bottom = 32
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 32
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_gsqoc")
+RichHeaderLarge/base_type = &"RichTextLabel"
+RichHeaderLarge/font_sizes/bold_font_size = 32
+RichHeaderLarge/font_sizes/bold_italics_font_size = 32
+RichHeaderLarge/font_sizes/italics_font_size = 32
+RichHeaderLarge/font_sizes/mono_font_size = 32
+RichHeaderLarge/font_sizes/normal_font_size = 32
+RichHeaderMedium/base_type = &"RichTextLabel"
+RichHeaderMedium/font_sizes/bold_font_size = 28
+RichHeaderMedium/font_sizes/bold_italics_font_size = 28
+RichHeaderMedium/font_sizes/italics_font_size = 28
+RichHeaderMedium/font_sizes/mono_font_size = 28
+RichHeaderMedium/font_sizes/normal_font_size = 28
+RichHeaderSmall/base_type = &"RichTextLabel"
+RichHeaderSmall/font_sizes/bold_font_size = 22
+RichHeaderSmall/font_sizes/bold_italics_font_size = 22
+RichHeaderSmall/font_sizes/italics_font_size = 22
+RichHeaderSmall/font_sizes/mono_font_size = 22
+RichHeaderSmall/font_sizes/normal_font_size = 22
+VBoxContainer/constants/separation = 16

@@ -15,9 +15,10 @@ This will ensure that arrow keys, controller input, or anything connected to the
 
 ## Details
 
-When the component is not visible, or when focus is somewhere, this component does nothing. Otherwise, it simulates a ui_focus_next or ui_focus_prev action and behaves exactly like tab does. 
+When the component is not visible, or when focus is somewhere, this component does nothing. Otherwise, it simulates a ui_focus_next or ui_focus_prev action when using arrow kays so it behaves exactly like tab does. 
+This prevents the focus from escaping to unexpected places or skipping control nodes that should receive focus.
 
-Note: this means the focus will wrap when using arrow keys.
+Note: this means the focus will wrap when using arrow keys, and for some components like a grid, you lose 2d navigation.
 
 ## Example
 

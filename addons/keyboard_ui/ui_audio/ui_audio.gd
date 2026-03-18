@@ -11,6 +11,8 @@ const SLIDER_MAX := &"slider_max"
 const MODAL_OPEN := &"modal_open"
 const MODAL_CLOSE := &"modal_close"
 const PRESS_DISABLED := &"press_disabled"
+const CONFIRM := &"confirm"
+const REJECT := &"reject"
 
 
 enum ConnectType {

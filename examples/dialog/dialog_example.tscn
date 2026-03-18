@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bpjqedwuxtv5v"]
+
+[ext_resource type="Script" uid="uid://b2a72ifaod3p1" path="res://examples/dialog/dialog_example.gd" id="1_snc7r"]
+[ext_resource type="Script" uid="uid://cj1nrk1dfyka5" path="res://addons/keyboard_ui/modal/modal.gd" id="1_ufou8"]
+[ext_resource type="PackedScene" uid="uid://bcb5phc5wndgt" path="res://addons/keyboard_ui/dialog/dialog.tscn" id="2_ufou8"]
+[ext_resource type="Script" uid="uid://0kpm2jeccjcq" path="res://addons/keyboard_ui/dialog/dialog_page.gd" id="3_snc7r"]
+[ext_resource type="Script" uid="uid://ca0pt3jybhtvh" path="res://examples/audio/ui_audio_player.gd" id="5_utqej"]
+
+[sub_resource type="Resource" id="Resource_ryf1m"]
+script = ExtResource("3_snc7r")
+text = "This is a dialog that will end in a question."
+metadata/_custom_type_script = "uid://0kpm2jeccjcq"
+
+[sub_resource type="Resource" id="Resource_vnc8h"]
+script = ExtResource("3_snc7r")
+text = "Do you want to reject or confirm?"
+metadata/_custom_type_script = "uid://0kpm2jeccjcq"
+
+[sub_resource type="Resource" id="Resource_ev1mv"]
+script = ExtResource("3_snc7r")
+text = "Welcome to the first page. Press continue to proceed to the second page."
+metadata/_custom_type_script = "uid://0kpm2jeccjcq"
+
+[sub_resource type="Resource" id="Resource_snc7r"]
+script = ExtResource("3_snc7r")
+text = "On the second page you have two choices. You can go back to the first page. Or continue to the third page."
+metadata/_custom_type_script = "uid://0kpm2jeccjcq"
+
+[sub_resource type="Resource" id="Resource_utqej"]
+script = ExtResource("3_snc7r")
+text = "This is the third and last page. You can go back to the second page. But if you finish the dialog, it will disappear."
+metadata/_custom_type_script = "uid://0kpm2jeccjcq"
+
+[node name="DialogExample" type="Control" unique_id=24894849]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_snc7r")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1630715763]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -62.5
+offset_right = 94.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OpenHelloDialogButton" type="Button" parent="VBoxContainer2" unique_id=9608157]
+layout_mode = 2
+text = "Open the Hello Dialog"
+
+[node name="OpenChoiceDialogButton" type="Button" parent="VBoxContainer2" unique_id=177353540]
+layout_mode = 2
+text = "Open the Choice Dialog"
+
+[node name="ChoiceDialog" parent="." unique_id=1464507125 instance=ExtResource("2_ufou8")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = -201.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_vertical = 0
+title_text = "Hello Dialog"
+pages = Array[ExtResource("3_snc7r")]([SubResource("Resource_ryf1m"), SubResource("Resource_vnc8h")])
+
+[node name="ConfirmButton" type="Button" parent="ChoiceDialog" unique_id=2040712632]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Confirm"
+
+[node name="RejectButton" type="Button" parent="ChoiceDialog" unique_id=1900297260]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Reject"
+
+[node name="DialogModal" type="Control" parent="." unique_id=639728420]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ufou8")
+metadata/_custom_type_script = "uid://cj1nrk1dfyka5"
+
+[node name="Dialog" parent="DialogModal" unique_id=1386711638 instance=ExtResource("2_ufou8")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+title_text = "Hello Dialog"
+pages = Array[ExtResource("3_snc7r")]([SubResource("Resource_ev1mv"), SubResource("Resource_snc7r"), SubResource("Resource_utqej")])
+
+[node name="UIAudioPlayer" type="Node" parent="." unique_id=1101560213]
+script = ExtResource("5_utqej")
+metadata/_custom_type_script = "uid://ca0pt3jybhtvh"
+
+[connection signal="pressed" from="VBoxContainer2/OpenHelloDialogButton" to="." method="_on_open_hello_dialog_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/OpenChoiceDialogButton" to="." method="_on_open_choice_dialog_button_pressed"]
