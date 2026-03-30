@@ -18,13 +18,5 @@ var _sounds: Dictionary = {
 
 
 func _ready() -> void:
-	UIAudio.ui_audio_event.connect(_on_ui_audio_event)
-
-
-func _on_ui_audio_event(_control: Control, event_name: StringName) -> void:
-	if event_name in _sounds:
-		var player := AudioStreamPlayer.new()
-		player.stream = _sounds[event_name]
-		add_child(player)
-		player.play()
-		player.finished.connect(player.queue_free)
+	for event_name in _sounds.keys():
+		UIAudio.register_sound(event_name, _sounds[event_name], SpeechService.SpeechCategory.UI)

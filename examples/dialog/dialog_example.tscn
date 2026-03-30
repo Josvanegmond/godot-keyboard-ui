@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2a72ifaod3p1" path="res://examples/dialog/dialog_example.gd" id="1_snc7r"]
 [ext_resource type="Script" uid="uid://cj1nrk1dfyka5" path="res://addons/keyboard_ui/modal/modal.gd" id="1_ufou8"]
+[ext_resource type="Script" uid="uid://b7d8442pmcda7" path="res://addons/keyboard_ui/elements/SpeechButton.gd" id="2_ryf1m"]
 [ext_resource type="PackedScene" uid="uid://bcb5phc5wndgt" path="res://addons/keyboard_ui/dialog/dialog.tscn" id="2_ufou8"]
 [ext_resource type="Script" uid="uid://0kpm2jeccjcq" path="res://addons/keyboard_ui/dialog/dialog_page.gd" id="3_snc7r"]
 [ext_resource type="Script" uid="uid://ca0pt3jybhtvh" path="res://examples/audio/ui_audio_player.gd" id="5_utqej"]
@@ -54,13 +55,17 @@ offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OpenHelloDialogButton" type="Button" parent="VBoxContainer2" unique_id=9608157]
+[node name="OpenHelloDialogButton" type="Button" parent="VBoxContainer2" unique_id=2074292966]
 layout_mode = 2
 text = "Open the Hello Dialog"
+script = ExtResource("2_ryf1m")
+metadata/_custom_type_script = "uid://b7d8442pmcda7"
 
-[node name="OpenChoiceDialogButton" type="Button" parent="VBoxContainer2" unique_id=177353540]
+[node name="OpenChoiceDialogButton" type="Button" parent="VBoxContainer2" unique_id=1186656047]
 layout_mode = 2
 text = "Open the Choice Dialog"
+script = ExtResource("2_ryf1m")
+metadata/_custom_type_script = "uid://b7d8442pmcda7"
 
 [node name="ChoiceDialog" parent="." unique_id=1464507125 instance=ExtResource("2_ufou8")]
 unique_name_in_owner = true
@@ -79,7 +84,7 @@ grow_vertical = 0
 title_text = "Hello Dialog"
 pages = Array[ExtResource("3_snc7r")]([SubResource("Resource_ryf1m"), SubResource("Resource_vnc8h")])
 
-[node name="ConfirmButton" type="Button" parent="ChoiceDialog" unique_id=2040712632]
+[node name="ConfirmButton" type="Button" parent="ChoiceDialog" unique_id=2019238941]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(120, 0)
@@ -87,8 +92,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Confirm"
+script = ExtResource("2_ryf1m")
+metadata/_custom_type_script = "uid://b7d8442pmcda7"
 
-[node name="RejectButton" type="Button" parent="ChoiceDialog" unique_id=1900297260]
+[node name="RejectButton" type="Button" parent="ChoiceDialog" unique_id=1551976976]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(120, 0)
@@ -96,6 +103,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Reject"
+script = ExtResource("2_ryf1m")
+metadata/_custom_type_script = "uid://b7d8442pmcda7"
 
 [node name="DialogModal" type="Control" parent="." unique_id=639728420]
 unique_name_in_owner = true

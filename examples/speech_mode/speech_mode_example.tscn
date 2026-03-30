@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d3ftlj54bppua"]
+
+[ext_resource type="Script" uid="uid://dqbjkmjohe8vd" path="res://addons/keyboard_ui/elements/speech_label.gd" id="1_76gpa"]
+[ext_resource type="Script" uid="uid://bemg1mu6ky6vu" path="res://addons/keyboard_ui/elements/speech_rich_text_label.gd" id="2_2lor5"]
+[ext_resource type="Script" uid="uid://bywp4gkrfow8m" path="res://addons/keyboard_ui/elements/speech_button.gd" id="3_tprk6"]
+
+[node name="SpeechModeExample" type="Control" unique_id=497109524]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=677300103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=739869510]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="SpeechLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1401856434]
+layout_mode = 2
+text = "This is a label"
+script = ExtResource("1_76gpa")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+
+[node name="SpeechRichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=1034627507]
+layout_mode = 2
+bbcode_enabled = true
+text = "This is a [b]Rich Text[/b] [i]label[i] [img src=\"icon.svg\"]"
+fit_content = true
+script = ExtResource("2_2lor5")
+metadata/_custom_type_script = "uid://bemg1mu6ky6vu"
+
+[node name="SpeechButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1742939359]
+layout_mode = 2
+text = "This is a button"
+script = ExtResource("3_tprk6")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
+
+[node name="SpeechButton2" type="Button" parent="CenterContainer/VBoxContainer" unique_id=870429231]
+layout_mode = 2
+tooltip_text = "You can click this button"
+text = "This is a button with tooltip"
+script = ExtResource("3_tprk6")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"

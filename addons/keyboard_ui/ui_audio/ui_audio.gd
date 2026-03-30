@@ -22,9 +22,6 @@ enum ConnectType {
 }
 
 
-signal ui_audio_event(control: Control, event_name: StringName)
-
-
 var _connections: Dictionary = {}
 var _type_class_map: Dictionary = {
 	ConnectType.BUTTON: BaseButton,
@@ -33,10 +30,7 @@ var _type_class_map: Dictionary = {
 
 
 var _boundary_candidate: Control = null
-
-
-func notify(control: Control, event_name: StringName) -> void:
-	ui_audio_event.emit(control, event_name)
+var registrations: Dictionary[String, Variant] = {}
 
 
 func _ready() -> void:
@@ -44,6 +38,59 @@ func _ready() -> void:
 	get_tree().node_removed.connect(ui_disconnect)
 	_scan_tree(get_tree().root)
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
+
+
+func register_call(event_name: String, callable: Callable, kill: Callable, cutoff_category: int = -1):
+	registrations.set(event_name, {
+		'callable': callable,
+		'kill': kill,
+		'cutoff_category': cutoff_category,
+	})
+
+
+func register_sound(event_name: String, sound: Resource, cutoff_category: int = -1):
+	registrations.set(event_name, {
+		'sound': sound,
+		'cutoff_category': cutoff_category,
+	})
+
+
+func play_audio(control: Control, event_name: StringName, cutoff_category: int = -1) -> void:
+	var registration = registrations.get(event_name)
+	if !registration: return
+
+	if registration.has('sound'):
+		_play_player(control, registration.get('sound'), cutoff_category)
+	elif registration.has('callable'):
+		var callable: Callable = registration.get('callable')
+		callable.call(control, event_name, true)
+
+
+func stop_audio(cutoff_category: int = -1):
+	for event_name in registrations.keys():
+		var registration = registrations[event_name]
+		
+		if cutoff_category != -1 and registration.get('cutoff_category') != cutoff_category:
+			continue
+
+		if registration.has('sound'):
+			for child in get_children():
+				if !child.is_queued_for_deletion() and \
+					child is AudioStreamPlayer and \
+					child.stream == registration.get('sound'):
+					child.stop()
+					
+		elif registration.has('kill'):
+			var kill_callable = registration.get('kill')
+			kill_callable.call(event_name, cutoff_category)
+
+
+func _play_player(_control: Control, sound: Resource, cutoff_category: int) -> void:
+	var player := AudioStreamPlayer.new()
+	player.stream = sound
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
 
 
 func _on_focus_changed(_new_focus: Control) -> void:
@@ -63,7 +110,7 @@ func _input(event: InputEvent) -> void:
 
 func _check_boundary(expected: Control) -> void:
 	if _boundary_candidate == expected:
-		notify(expected, FOCUS_BOUNDARY)
+		play_audio(expected, FOCUS_BOUNDARY)
 	_boundary_candidate = null
 
 
@@ -85,8 +132,6 @@ func ui_connect(node: Node, connect_type: ConnectType = ConnectType.AUTO) -> voi
 		_connect_slider(node)
 
 
-# For registering custom components, give a callable that returns a Dictionary of { signal_name: callable }
-# The callable should call UIAudio.notify(node, event_name)
 func ui_connect_custom(node: Node, custom_connection_callback: Callable) -> void:
 	if node in _connections:
 		return
@@ -112,11 +157,11 @@ func _is_type(node: Node, type: ConnectType, expected_type: ConnectType) -> bool
 
 
 func _connect_button(button: Node) -> void:
-	var on_focus := func(): notify(button, FOCUS)
-	var on_press := func(): notify(button, PRESS)
+	var on_focus := func(): play_audio(button, FOCUS)
+	var on_press := func(): play_audio(button, PRESS)
 	var on_gui_input := func(event: InputEvent):
 		if button.disabled and event.is_action_pressed(&"ui_accept"):
-			notify(button, PRESS_DISABLED)
+			play_audio(button, PRESS_DISABLED)
 
 	button.focus_entered.connect(on_focus)
 	button.pressed.connect(on_press)
@@ -130,14 +175,14 @@ func _connect_button(button: Node) -> void:
 
 
 func _connect_slider(slider: Node) -> void:
-	var on_focus := func(): notify(slider, FOCUS)
+	var on_focus := func(): play_audio(slider, FOCUS)
 	var on_change := func(_value: float):
 		if slider.value <= slider.min_value:
-			notify(slider, SLIDER_MIN)
+			play_audio(slider, SLIDER_MIN)
 		elif slider.value >= slider.max_value:
-			notify(slider, SLIDER_MAX)
+			play_audio(slider, SLIDER_MAX)
 		else:
-			notify(slider, SLIDER_TICK)
+			play_audio(slider, SLIDER_TICK)
 	slider.focus_entered.connect(on_focus)
 	slider.value_changed.connect(on_change)
 	_connections[slider] = [

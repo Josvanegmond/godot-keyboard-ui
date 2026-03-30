@@ -1,0 +1,499 @@
+[gd_scene format=3 uid="uid://cn4jigymj7pm3"]
+
+[ext_resource type="Script" uid="uid://u2cblnbvd0rn" path="res://addons/keyboard_ui/speech/speech_control.gd" id="1_7g80u"]
+[ext_resource type="Script" uid="uid://dqbjkmjohe8vd" path="res://addons/keyboard_ui/elements/speech_label.gd" id="2_xmf1q"]
+[ext_resource type="Script" uid="uid://bywp4gkrfow8m" path="res://addons/keyboard_ui/elements/speech_button.gd" id="3_xmf1q"]
+[ext_resource type="Script" uid="uid://bllmug2em3ro5" path="res://addons/keyboard_ui/elements/speech_option_button.gd" id="4_i341d"]
+[ext_resource type="Script" uid="uid://b035u1y2rbyo0" path="res://addons/keyboard_ui/speech/speech_data.gd" id="4_joqfb"]
+[ext_resource type="Script" uid="uid://cdfhatqkqbbxo" path="res://addons/keyboard_ui/elements/speech_check_button.gd" id="5_d7ftr"]
+
+[sub_resource type="Resource" id="Resource_joqfb"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_d8syb"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_i341d"]
+
+[sub_resource type="Resource" id="Resource_un2qw"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_u7ias"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_8yon8"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_ot7f4"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_ivun0"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_a46f2"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_6kenb"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_6gbnk"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_msfg3"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_tqlmy"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_56b2q"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_tpb5w"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_0b6is"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_c3n7l"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_vvquf"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_omxdb"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_47mqb"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_fl085"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_41ay1"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_svor5"]
+script = ExtResource("4_joqfb")
+
+[sub_resource type="Resource" id="Resource_okjgr"]
+script = ExtResource("4_joqfb")
+
+[node name="SpeechControl" type="PanelContainer" unique_id=1362029414]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7g80u")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1142848238]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=567717304]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="SpeechControlTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=17880692]
+layout_mode = 2
+focus_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Speech mode control"
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+metadata/speech_data = SubResource("Resource_joqfb")
+
+[node name="SpeechCategory" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=500349804]
+layout_mode = 2
+
+[node name="SpeechCategoryLabel" type="Label" parent="MarginContainer/VBoxContainer/SpeechCategory" unique_id=1877960612]
+layout_mode = 2
+focus_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Speech category"
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+metadata/speech_data = SubResource("Resource_d8syb")
+
+[node name="SpeechCategories" type="HBoxContainer" parent="MarginContainer/VBoxContainer/SpeechCategory" unique_id=999244714]
+layout_mode = 2
+
+[node name="UIButton" type="Button" parent="MarginContainer/VBoxContainer/SpeechCategory/SpeechCategories" unique_id=782019320]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Press to edit speech settings for UI"
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_i341d")
+text = "UI"
+script = ExtResource("3_xmf1q")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
+metadata/speech_data = SubResource("Resource_un2qw")
+
+[node name="ContentButton" type="Button" parent="MarginContainer/VBoxContainer/SpeechCategory/SpeechCategories" unique_id=89732127]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Press to edit speech settings for content"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_i341d")
+text = "Content"
+script = ExtResource("3_xmf1q")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
+metadata/speech_data = SubResource("Resource_u7ias")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1473466578]
+layout_mode = 2
+
+[node name="CategorySettingsLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1965142515]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Category settings"
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+metadata/speech_data = SubResource("Resource_8yon8")
+
+[node name="TTS" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1222437481]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS" unique_id=1512118147]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer" unique_id=1687623751]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer" unique_id=1727775791]
+layout_mode = 2
+
+[node name="TTSSettingsButton" type="CheckButton" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer" unique_id=1477517504]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"FlatCheckButton"
+button_pressed = true
+text = "Enable TTS"
+script = ExtResource("5_d7ftr")
+metadata/_custom_type_script = "uid://cdfhatqkqbbxo"
+metadata/speech_data = SubResource("Resource_ot7f4")
+
+[node name="TTSFailedLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer" unique_id=626917287]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+
+[node name="TTSSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer" unique_id=471844565]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TTSVoice" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings" unique_id=600822914]
+layout_mode = 2
+
+[node name="TTSVoiceLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSVoice" unique_id=475073140]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Voice"
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+metadata/speech_data = SubResource("Resource_ivun0")
+
+[node name="TTSVoiceLang" type="OptionButton" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSVoice" unique_id=1365715355]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+accessibility_name = "Language code"
+accessibility_labeled_by_nodes = Array[NodePath]([NodePath("../TTSVoiceLabel")])
+clip_text = true
+fit_to_longest_item = false
+script = ExtResource("4_i341d")
+metadata/_custom_type_script = "uid://bllmug2em3ro5"
+metadata/speech_data = SubResource("Resource_a46f2")
+
+[node name="TTSVoiceOption" type="OptionButton" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSVoice" unique_id=1597306457]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+accessibility_name = "Language option"
+accessibility_labeled_by_nodes = Array[NodePath]([NodePath("../TTSVoiceLabel")])
+clip_text = true
+fit_to_longest_item = false
+enable_search_bar_on_item_count = 6
+script = ExtResource("4_i341d")
+metadata/_custom_type_script = "uid://bllmug2em3ro5"
+
+[node name="TTSVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings" unique_id=441980184]
+layout_mode = 2
+
+[node name="TTSVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSVolume" unique_id=1195743046]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volume"
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+metadata/speech_data = SubResource("Resource_6kenb")
+
+[node name="TTSVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSVolume" unique_id=1699691223]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+accessibility_labeled_by_nodes = Array[NodePath]([NodePath("../TTSVolumeLabel")])
+value = 50.0
+rounded = true
+metadata/speech_data = SubResource("Resource_6gbnk")
+
+[node name="TTSPitch" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings" unique_id=853174310]
+layout_mode = 2
+
+[node name="TTSPitchLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSPitch" unique_id=2012595274]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pitch"
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+
+[node name="TTSPitchSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSPitch" unique_id=1870642288]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+accessibility_labeled_by_nodes = Array[NodePath]([NodePath("../TTSPitchLabel")])
+max_value = 3.0
+step = 0.1
+value = 1.0
+metadata/speech_data = SubResource("Resource_msfg3")
+
+[node name="TTSRate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings" unique_id=782146629]
+layout_mode = 2
+
+[node name="TTSRateLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSRate" unique_id=1697359303]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rate"
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+
+[node name="TTSRateSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSRate" unique_id=696158466]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+accessibility_labeled_by_nodes = Array[NodePath]([NodePath("../TTSRateLabel")])
+max_value = 3.0
+step = 0.1
+value = 1.0
+metadata/speech_data = SubResource("Resource_tqlmy")
+
+[node name="ScreenReader" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=899595804]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/ScreenReader" unique_id=954201757]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/ScreenReader/PanelContainer" unique_id=1257089525]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/ScreenReader/PanelContainer/MarginContainer" unique_id=280180218]
+layout_mode = 2
+
+[node name="ScreenReaderSettingsButton" type="CheckButton" parent="MarginContainer/VBoxContainer/VBoxContainer/ScreenReader/PanelContainer/MarginContainer/VBoxContainer" unique_id=1511773526]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"FlatCheckButton"
+button_pressed = true
+text = "Enable screen reader"
+script = ExtResource("5_d7ftr")
+metadata/_custom_type_script = "uid://cdfhatqkqbbxo"
+metadata/speech_data = SubResource("Resource_56b2q")
+
+[node name="SRFailedLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/ScreenReader/PanelContainer/MarginContainer/VBoxContainer" unique_id=1562069900]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+
+[node name="VoiceActing" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=232071259]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/VoiceActing" unique_id=401817823]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/VoiceActing/PanelContainer" unique_id=196416592]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/VoiceActing/PanelContainer/MarginContainer" unique_id=691142670]
+layout_mode = 2
+
+[node name="VoiceActingSettingsButton" type="CheckButton" parent="MarginContainer/VBoxContainer/VBoxContainer/VoiceActing/PanelContainer/MarginContainer/VBoxContainer" unique_id=1539113709]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"FlatCheckButton"
+button_pressed = true
+text = "Enable voice acting"
+script = ExtResource("5_d7ftr")
+metadata/_custom_type_script = "uid://cdfhatqkqbbxo"
+metadata/speech_data = SubResource("Resource_tpb5w")
+
+[node name="VoiceActingSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/VoiceActing/PanelContainer/MarginContainer/VBoxContainer" unique_id=1956499324]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VAVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/VoiceActing/PanelContainer/MarginContainer/VBoxContainer/VoiceActingSettings" unique_id=612340682]
+layout_mode = 2
+
+[node name="VAVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/VoiceActing/PanelContainer/MarginContainer/VBoxContainer/VoiceActingSettings/VAVolume" unique_id=849858382]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volume"
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+
+[node name="VAVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/VoiceActing/PanelContainer/MarginContainer/VBoxContainer/VoiceActingSettings/VAVolume" unique_id=391806723]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+accessibility_labeled_by_nodes = Array[NodePath]([NodePath("../VAVolumeLabel")])
+value = 50.0
+rounded = true
+metadata/speech_data = SubResource("Resource_0b6is")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=563164410]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=1683646580]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer" unique_id=1656459339]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=336793068]
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=28595477]
+layout_mode = 2
+focus_mode = 2
+text = "General settings"
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+metadata/speech_data = SubResource("Resource_c3n7l")
+
+[node name="TranslationSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=551830850]
+layout_mode = 2
+
+[node name="Interrupt" type="CheckButton" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TranslationSettings" unique_id=1661610995]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "When on, this speech category is interrupted when another speech plays from any category."
+theme_type_variation = &"FlatCheckButton"
+text = "Allow interruption"
+script = ExtResource("5_d7ftr")
+metadata/_custom_type_script = "uid://cdfhatqkqbbxo"
+metadata/speech_data = SubResource("Resource_vvquf")
+
+[node name="TranslateVoiceActing" type="CheckButton" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TranslationSettings" unique_id=490722174]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Screen reader or TTS will translate while voice acting plays"
+theme_type_variation = &"FlatCheckButton"
+text = "Translate voice-acting"
+script = ExtResource("5_d7ftr")
+metadata/_custom_type_script = "uid://cdfhatqkqbbxo"
+metadata/speech_data = SubResource("Resource_omxdb")
+
+[node name="TranslateLanguageSetting" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TranslationSettings" unique_id=407338955]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SpeechOptionLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TranslationSettings/TranslateLanguageSetting" unique_id=1379185997]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Language translation used for the screen reader or TTS"
+text = "Translate language"
+script = ExtResource("2_xmf1q")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
+metadata/speech_data = SubResource("Resource_47mqb")
+
+[node name="TranslateLanguageOption" type="OptionButton" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TranslationSettings/TranslateLanguageSetting" unique_id=137345821]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+accessibility_name = "Translate language"
+selected = 0
+fit_to_longest_item = false
+enable_search_bar_on_item_count = 6
+item_count = 1
+popup/item_0/text = "English"
+popup/item_0/id = 0
+script = ExtResource("4_i341d")
+metadata/_custom_type_script = "uid://bllmug2em3ro5"
+metadata/speech_data = SubResource("Resource_fl085")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1104187132]
+layout_mode = 2
+alignment = 2
+
+[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=121036117]
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_description = "Reset all settings to default"
+text = "Reset"
+script = ExtResource("3_xmf1q")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
+metadata/speech_data = SubResource("Resource_41ay1")
+
+[node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1955628226]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+script = ExtResource("3_xmf1q")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
+metadata/speech_data = SubResource("Resource_svor5")
+
+[node name="ConfirmButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=391234775]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Confirm"
+script = ExtResource("3_xmf1q")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
+metadata/speech_data = SubResource("Resource_okjgr")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SpeechCategory/SpeechCategories/UIButton" to="." method="_on_ui_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SpeechCategory/SpeechCategories/ContentButton" to="." method="_on_content_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettingsButton" to="." method="_on_tts_settings_button_pressed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSVoice/TTSVoiceLang" to="." method="_on_tts_voice_lang_item_selected"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSVoice/TTSVoiceOption" to="." method="_on_tts_voice_option_focus_entered"]
+[connection signal="item_focused" from="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSVoice/TTSVoiceOption" to="." method="_on_tts_voice_option_item_focused"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSVoice/TTSVoiceOption" to="." method="_on_tts_voice_option_item_selected"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSVolume/TTSVolumeSlider" to="." method="_on_tts_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSPitch/TTSPitchSlider" to="." method="_on_tts_pitch_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/TTS/PanelContainer/MarginContainer/VBoxContainer/TTSSettings/TTSRate/TTSRateSlider" to="." method="_on_tts_rate_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/ScreenReader/PanelContainer/MarginContainer/VBoxContainer/ScreenReaderSettingsButton" to="." method="_on_screen_reader_settings_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/VoiceActing/PanelContainer/MarginContainer/VBoxContainer/VoiceActingSettings/VAVolume/VAVolumeSlider" to="." method="_on_va_volume_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TranslationSettings/Interrupt" to="." method="_on_interrupt_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TranslationSettings/TranslateVoiceActing" to="." method="_on_use_as_translator_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TranslationSettings/TranslateLanguageSetting/TranslateLanguageOption" to="." method="_on_speech_option_button_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]

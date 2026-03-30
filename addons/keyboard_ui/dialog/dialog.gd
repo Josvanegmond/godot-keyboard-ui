@@ -35,6 +35,11 @@ signal on_action(button: BaseButton, dialog: Dialog)
 @export var pages: Array[DialogPage] = []
 
 
+# Can be used to prevent screen readers from reading the text or buttons
+@export var text_accessibility_hidden: bool = false
+@export var buttons_accessibility_hidden: bool = false
+
+
 var current_page_number: int = 0
 var button_page_mask: Dictionary[int, int] = {}
 

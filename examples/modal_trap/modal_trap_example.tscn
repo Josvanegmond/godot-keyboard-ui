@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://b8cuvqgwqosfv"]
 
-[ext_resource type="PackedScene" uid="uid://djhq3a1bo04bj" path="res://examples/modal_trap_example/button_group.tscn" id="1_a8ngm"]
+[ext_resource type="PackedScene" uid="uid://djhq3a1bo04bj" path="res://examples/modal_trap/button_group.tscn" id="1_a8ngm"]
 [ext_resource type="Script" uid="uid://drs47bhebh680" path="res://addons/keyboard_ui/focus_control/focus_control.gd" id="1_b3gom"]
 [ext_resource type="Script" uid="uid://ca0pt3jybhtvh" path="res://examples/audio/ui_audio_player.gd" id="2_h7n1k"]
+[ext_resource type="Script" path="res://addons/keyboard_ui/elements/SpeechButton.gd" id="2_jyc7e"]
 
 [node name="ModalTrapTest" type="Control" unique_id=1707222162]
 layout_mode = 3
@@ -25,17 +26,23 @@ offset_right = 120.0
 offset_bottom = 62.5
 grow_vertical = 2
 
-[node name="Button behind" type="Button" parent="VBoxContainer" unique_id=1051106095]
+[node name="Button behind" type="Button" parent="VBoxContainer" unique_id=26462854]
 layout_mode = 2
 text = "Button behind"
+script = ExtResource("2_jyc7e")
+metadata/_custom_type_script = "uid://b7d8442pmcda7"
 
-[node name="Button behind2" type="Button" parent="VBoxContainer" unique_id=1084598187]
+[node name="Button behind2" type="Button" parent="VBoxContainer" unique_id=1680360783]
 layout_mode = 2
 text = "Button behind"
+script = ExtResource("2_jyc7e")
+metadata/_custom_type_script = "uid://b7d8442pmcda7"
 
-[node name="Button behind3" type="Button" parent="VBoxContainer" unique_id=1565744325]
+[node name="Button behind3" type="Button" parent="VBoxContainer" unique_id=811092486]
 layout_mode = 2
 text = "Button behind"
+script = ExtResource("2_jyc7e")
+metadata/_custom_type_script = "uid://b7d8442pmcda7"
 
 [node name="ButtonGroup" parent="." unique_id=273928129 instance=ExtResource("1_a8ngm")]
 layout_mode = 1
@@ -47,11 +54,13 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button on top" type="Button" parent="." unique_id=301405949]
+[node name="Button on top" type="Button" parent="." unique_id=1016676179]
 layout_mode = 1
-offset_right = 116.0
-offset_bottom = 31.0
+offset_right = 124.0
+offset_bottom = 39.0
 text = "Button on top"
+script = ExtResource("2_jyc7e")
+metadata/_custom_type_script = "uid://b7d8442pmcda7"
 
 [node name="UIAudioPlayer" type="Node" parent="." unique_id=1046506073]
 script = ExtResource("2_h7n1k")

@@ -31,4 +31,4 @@ You can also design your own dialog by simply adding dialog.gd to your node, but
 
 ## Example
 
-You can find an example scene that uses the dialog in [examples/dialog](https://github.com/Josvanegmond/godot-keyboard-ui/tree/main/examples/modal_trap_example)
+You can find an example scene that uses the dialog in [examples/dialog](https://github.com/Josvanegmond/godot-keyboard-ui/tree/main/examples/modal_trap)

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bcb5phc5wndgt"]
 
 [ext_resource type="Script" uid="uid://c7674yhc0anbf" path="res://addons/keyboard_ui/dialog/dialog.gd" id="1_o8md5"]
+[ext_resource type="Script" uid="uid://bemg1mu6ky6vu" path="res://addons/keyboard_ui/elements/speech_rich_text_label.gd" id="2_hqjbd"]
+[ext_resource type="Script" uid="uid://bywp4gkrfow8m" path="res://addons/keyboard_ui/elements/speech_button.gd" id="3_q76df"]
 
 [node name="DialogFrame" type="PanelContainer" unique_id=1726979711]
 anchors_preset = 8
@@ -26,7 +28,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Title" type="RichTextLabel" parent="MarginContainer/ContentContainer/TextContainer" unique_id=338591943]
+[node name="Title" type="RichTextLabel" parent="MarginContainer/ContentContainer/TextContainer" unique_id=1022257596]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -36,14 +38,18 @@ theme_type_variation = &"RichHeaderMedium"
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
+script = ExtResource("2_hqjbd")
+metadata/_custom_type_script = "uid://bemg1mu6ky6vu"
 
-[node name="Text" type="RichTextLabel" parent="MarginContainer/ContentContainer/TextContainer" unique_id=1244557011]
+[node name="Text" type="RichTextLabel" parent="MarginContainer/ContentContainer/TextContainer" unique_id=260477600]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 2
 focus_mode = 2
 bbcode_enabled = true
 fit_content = true
+script = ExtResource("2_hqjbd")
+metadata/_custom_type_script = "uid://bemg1mu6ky6vu"
 
 [node name="BottomContainer" type="HBoxContainer" parent="MarginContainer/ContentContainer" unique_id=1837212177]
 layout_mode = 2
@@ -57,7 +63,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 alignment = 2
 
-[node name="ContinueButton" type="Button" parent="MarginContainer/ContentContainer/BottomContainer" unique_id=2047285210]
+[node name="ContinueButton" type="Button" parent="MarginContainer/ContentContainer/BottomContainer" unique_id=666392883]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(120, 0)
@@ -65,15 +71,21 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Finish"
+script = ExtResource("3_q76df")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
 
-[node name="BackButton" type="Button" parent="MarginContainer/ContentContainer/BottomContainer" unique_id=660041284]
+[node name="BackButton" type="Button" parent="MarginContainer/ContentContainer/BottomContainer" unique_id=1249572546]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+accessibility_described_by_nodes = Array[NodePath]([NodePath("")])
+accessibility_labeled_by_nodes = Array[NodePath]([NodePath("")])
 text = "Back"
+script = ExtResource("3_q76df")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
 
 [connection signal="pressed" from="MarginContainer/ContentContainer/BottomContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ContentContainer/BottomContainer/BackButton" to="." method="_on_back_button_pressed"]

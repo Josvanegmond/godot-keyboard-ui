@@ -22,4 +22,4 @@ Note: this means the focus will wrap when using arrow keys, and for some compone
 
 ## Example
 
-You can find an example scene using the modal control node that implements the focus_control node in [examples/modal_trap_example](https://github.com/Josvanegmond/godot-keyboard-ui/tree/main/examples/modal_trap_example)
+You can find an example scene using the modal control node that implements the focus_control node in [examples/modal_trap](https://github.com/Josvanegmond/godot-keyboard-ui/tree/main/examples/modal_trap)

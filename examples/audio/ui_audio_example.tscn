@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bx7g00cu05til" path="res://examples/audio/ui_audio_example.gd" id="1_gf1qc"]
 [ext_resource type="Script" uid="uid://cj1nrk1dfyka5" path="res://addons/keyboard_ui/modal/modal.gd" id="1_tm6ln"]
+[ext_resource type="Script" uid="uid://bywp4gkrfow8m" path="res://addons/keyboard_ui/elements/speech_button.gd" id="2_o01sk"]
 [ext_resource type="Script" uid="uid://ca0pt3jybhtvh" path="res://examples/audio/ui_audio_player.gd" id="3_o01sk"]
+[ext_resource type="Script" uid="uid://dqbjkmjohe8vd" path="res://addons/keyboard_ui/elements/speech_label.gd" id="4_tcfim"]
 
 [node name="UiAudioExample" type="Control" unique_id=65778549]
 layout_mode = 3
@@ -28,14 +30,18 @@ offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=1888063039]
+[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=120656369]
 layout_mode = 2
 text = "Open settings"
+script = ExtResource("2_o01sk")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
 
-[node name="DisabledButton" type="Button" parent="VBoxContainer" unique_id=1334322628]
+[node name="DisabledButton" type="Button" parent="VBoxContainer" unique_id=411382447]
 layout_mode = 2
 disabled = true
 text = "Exit"
+script = ExtResource("2_o01sk")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
 
 [node name="SettingsModal" type="Control" parent="." unique_id=16141510]
 unique_name_in_owner = true
@@ -64,9 +70,12 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="SettingsModal/VBoxContainer" unique_id=1342318992]
+[node name="Label" type="Label" parent="SettingsModal/VBoxContainer" unique_id=1464790200]
 layout_mode = 2
+focus_mode = 2
 text = "Settings menu"
+script = ExtResource("4_tcfim")
+metadata/_custom_type_script = "uid://dqbjkmjohe8vd"
 
 [node name="DemoSlider" type="HSlider" parent="SettingsModal/VBoxContainer" unique_id=1540252816]
 layout_mode = 2
@@ -76,9 +85,11 @@ max_value = 10.0
 tick_count = 10
 ticks_on_borders = true
 
-[node name="ConfirmsettingsButton" type="Button" parent="SettingsModal/VBoxContainer" unique_id=5597481]
+[node name="ConfirmsettingsButton" type="Button" parent="SettingsModal/VBoxContainer" unique_id=1040447866]
 layout_mode = 2
 text = "Confirm settings"
+script = ExtResource("2_o01sk")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
 
 [node name="UIAudioPlayer" type="Node" parent="." unique_id=2099336688]
 script = ExtResource("3_o01sk")

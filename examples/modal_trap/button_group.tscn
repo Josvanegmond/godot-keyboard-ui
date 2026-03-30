@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://djhq3a1bo04bj"]
 
-[ext_resource type="Script" uid="uid://c2hv7slyefbol" path="res://examples/modal_trap_example/button_group.gd" id="1_ef5rd"]
+[ext_resource type="Script" uid="uid://c2hv7slyefbol" path="res://examples/modal_trap/button_group.gd" id="1_ef5rd"]
 [ext_resource type="Script" uid="uid://cj1nrk1dfyka5" path="res://addons/keyboard_ui/modal/modal.gd" id="2_d48pm"]
+[ext_resource type="Script" uid="uid://bywp4gkrfow8m" path="res://addons/keyboard_ui/elements/speech_button.gd" id="3_dc66x"]
 
 [node name="Control" type="Control" unique_id=273928129]
 custom_minimum_size = Vector2(400, 400)
@@ -34,27 +35,37 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="CreateModalButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=278281728]
+[node name="CreateModalButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=2102322869]
 layout_mode = 2
 text = "Create modal"
+script = ExtResource("3_dc66x")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
 
-[node name="UselessButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=524454877]
+[node name="UselessButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=415420809]
 layout_mode = 2
 text = "Useless button"
+script = ExtResource("3_dc66x")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
 
-[node name="DisabledButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=1704591993]
+[node name="DisabledButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=2100293443]
 layout_mode = 2
 disabled = true
 text = "Disabled button"
+script = ExtResource("3_dc66x")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
 
-[node name="InvisibleButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=685135819]
+[node name="InvisibleButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=461044517]
 visible = false
 layout_mode = 2
 text = "Useless button"
+script = ExtResource("3_dc66x")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
 
-[node name="CloseModalButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=645675270]
+[node name="CloseModalButton" type="Button" parent="Modal/MarginContainer/VBoxContainer" unique_id=586989423]
 layout_mode = 2
 text = "Close this modal"
+script = ExtResource("3_dc66x")
+metadata/_custom_type_script = "uid://bywp4gkrfow8m"
 
 [connection signal="pressed" from="Modal/MarginContainer/VBoxContainer/CreateModalButton" to="." method="_on_create_modal_button_pressed"]
 [connection signal="pressed" from="Modal/MarginContainer/VBoxContainer/CloseModalButton" to="." method="_on_close_modal_button_pressed"]

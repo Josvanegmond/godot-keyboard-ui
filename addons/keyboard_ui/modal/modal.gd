@@ -1,4 +1,3 @@
-@tool
 extends FocusControl
 class_name Modal
 
@@ -16,6 +15,7 @@ signal on_dismiss(triggering_event: InputEvent)
 var _glass: ColorRect
 var _trapped_nodes: Dictionary = {}
 var _trapped_mouse_filters: Dictionary = {}
+var source_focus: Control = null
 
 
 func _ready() -> void:
@@ -23,10 +23,15 @@ func _ready() -> void:
 	_glass.set_anchors_preset(Control.LayoutPreset.PRESET_FULL_RECT)
 	add_child(_glass, false, Node.INTERNAL_MODE_FRONT)
 	_update_modal_glass()
-	if not Engine.is_editor_hint():
-		if visible:
-			_trap_focus()
-		visibility_changed.connect(_on_visibility_changed)
+	if visible:
+		_trap_focus()
+	visibility_changed.connect(_on_visibility_changed)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_ACCESSIBILITY_UPDATE:
+		var rid = get_accessibility_element()
+		DisplayServer.accessibility_update_set_flag(rid, DisplayServer.FLAG_MODAL, true)
 
 
 func _on_visibility_changed() -> void:
@@ -41,17 +46,19 @@ func _exit_tree() -> void:
 
 
 func _open() -> void:
+	source_focus = get_viewport().gui_get_focus_owner()
 	_trap_focus()
 
-	if not Engine.is_editor_hint():
-		UIAudio.notify(self, UIAudio.MODAL_OPEN)
+	UIAudio.play_audio(self, UIAudio.MODAL_OPEN)
 
 
 func _close() -> void:
 	_release_focus()
 
-	if not Engine.is_editor_hint():
-		UIAudio.notify(self, UIAudio.MODAL_CLOSE)
+	if source_focus and is_instance_valid(source_focus) and source_focus.focus_mode != Control.FOCUS_NONE:
+		source_focus.grab_focus.call_deferred()
+
+	UIAudio.play_audio(self, UIAudio.MODAL_CLOSE)
 
 
 func _trap_focus() -> void:
